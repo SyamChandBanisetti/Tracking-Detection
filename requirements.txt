@@ -6,4 +6,3 @@ yt-dlp
 numpy
 torch
 torchvision
-matplotlib
