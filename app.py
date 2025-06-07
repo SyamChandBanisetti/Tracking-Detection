@@ -1,11 +1,9 @@
-# app.py
 import streamlit as st
 from pathlib import Path
 import PIL
 import settings
 import helper
 
-# App Configuration
 st.set_page_config(
     page_title="🧠 YOLOv8 Object Detection & Tracking",
     layout="wide",
@@ -14,22 +12,20 @@ st.set_page_config(
 
 st.title("🔍 Real-Time Object Detection & Tracking using YOLOv8")
 
-# Sidebar – Model Selection
+# Sidebar – Model Settings
 st.sidebar.header("⚙️ Model Settings")
 task = st.sidebar.radio("Select Task", ['Detection', 'Segmentation'])
 confidence = float(st.sidebar.slider("Model Confidence (%)", 25, 100, 40)) / 100
-
-# Select Model
 model_path = Path(settings.DETECTION_MODEL if task == 'Detection' else settings.SEGMENTATION_MODEL)
 
-# Load YOLOv8 Model
+# Load Model
 try:
     model = helper.load_model(model_path)
 except Exception as e:
     st.error(f"❌ Model loading failed: {model_path}")
     st.exception(e)
 
-# Sidebar – Source Selection
+# Sidebar – Source
 st.sidebar.header("📷 Input Source")
 source = st.sidebar.radio("Select Input Type", settings.SOURCES_LIST)
 
