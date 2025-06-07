@@ -1,10 +1,9 @@
 streamlit==1.36.0
 ultralytics==8.2.60
-opencv-python==4.10.0.84
 opencv-python-headless
-Pillow==10.4.0
-yt-dlp==2024.7.16
-numpy==1.26.4
-torch==2.3.1
-torchvision==0.18.1
-matplotlib==3.9.1
+Pillow
+yt-dlp
+numpy
+torch
+torchvision
+matplotlib
