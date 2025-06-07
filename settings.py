@@ -27,10 +27,9 @@ VIDEOS_DICT = {
     'video_3': VIDEO_DIR / 'video_3.mp4',
 }
 
-# Models
-MODEL_DIR = ROOT / 'weights'
-DETECTION_MODEL = MODEL_DIR / 'yolov8n.pt'
-SEGMENTATION_MODEL = MODEL_DIR / 'yolov8n-seg.pt'
+# Models – let Ultralytics download automatically
+DETECTION_MODEL = 'yolov8n.pt'
+SEGMENTATION_MODEL = 'yolov8n-seg.pt'
 
 # Webcam
 WEBCAM_PATH = 0
