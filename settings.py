@@ -15,11 +15,11 @@ RTSP = 'RTSP'
 YOUTUBE = 'YouTube'
 SOURCES_LIST = [IMAGE, VIDEO, WEBCAM, RTSP, YOUTUBE]
 
-# Paths
+# Images
 IMAGES_DIR = ROOT / 'images'
 DEFAULT_IMAGE = IMAGES_DIR / 'office_4.jpg'
-DEFAULT_DETECT_IMAGE = IMAGES_DIR / 'office_4_detected.jpg'
 
+# Videos
 VIDEO_DIR = ROOT / 'videos'
 VIDEOS_DICT = {
     'video_1': VIDEO_DIR / 'video_1.mp4',
@@ -27,8 +27,10 @@ VIDEOS_DICT = {
     'video_3': VIDEO_DIR / 'video_3.mp4',
 }
 
+# Models
 MODEL_DIR = ROOT / 'weights'
 DETECTION_MODEL = MODEL_DIR / 'yolov8n.pt'
 SEGMENTATION_MODEL = MODEL_DIR / 'yolov8n-seg.pt'
 
+# Webcam
 WEBCAM_PATH = 0
