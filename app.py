@@ -1,10 +1,9 @@
 import streamlit as st
 from pathlib import Path
-import PIL.Image
+import PIL
 import settings
 import helper
 
-# App Configuration
 st.set_page_config(
     page_title="🧠 YOLOv8 Object Detection & Tracking",
     layout="wide",
@@ -18,14 +17,12 @@ st.sidebar.header("⚙️ Model Settings")
 task = st.sidebar.radio("Select Task", ['Detection', 'Segmentation'])
 confidence = float(st.sidebar.slider("Model Confidence (%)", 25, 100, 40)) / 100
 
-# Select Model
-model_path = Path(settings.DETECTION_MODEL if task == 'Detection' else settings.SEGMENTATION_MODEL)
-
-# Load YOLOv8 Model
+# Load YOLOv8 Model (Automatically downloads from Ultralytics Hub)
+model_name = settings.DETECTION_MODEL if task == 'Detection' else settings.SEGMENTATION_MODEL
 try:
-    model = helper.load_model(model_path)
+    model = helper.load_model(model_name)
 except Exception as e:
-    st.error(f"❌ Model loading failed: {model_path}")
+    st.error(f"❌ Model loading failed: {model_name}")
     st.exception(e)
 
 # Sidebar – Source Selection
